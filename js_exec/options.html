@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Options</title>
+	<meta charset="utf-8"/>
+
+	<style type="text/css">
+		* {
+			box-sizing: border-box;
+			marg
+		}
+		body, #title, #sidebar, #main {
+			margin: 0px;
+			padding: 0px;
+		}
+		#title {
+			width: 100%;
+			height: 100px;
+			border-bottom: 1px solid gray;
+		}
+		#sidebar {
+			position: fixed;
+				top: 100px;
+				left: 0px;
+			height: 100%;
+			width: 200px;
+			border-right: 1px solid gray;
+		}
+		#sidebar .link {
+			color: blue;
+		}
+		#main {
+			position: fixed;
+				top: 100px;
+				left: 200px;
+			width: 100%;
+			height: 100%;
+			padding: 20px;
+		}
+		#main #addScript input, #main #addScript textarea {
+			display: block;
+			margin-bottom: 10px;
+		}
+	</style>
+
+	<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="options.js"></script>
+</head>
+<body>
+	<div id="title">
+		JS Exec
+	</div>
+
+	<div id="sidebar">
+		<p>Liens :</p>
+		<ul id="liens">
+			<li class="link" id="addScript-link">Ajouter un script</li>
+		</ul>
+		<p>Scripts :</p>
+		<ul id="scripts">
+			
+		</ul>
+	</div>
+
+	<div id="main">
+		<div id="addScript">
+			<p>Ajouter un script :</p>
+			<input required type="text" name="nom-script" placeholder="Nom du script" />
+			<textarea required type="text" name="script" placeholder="JS"></textarea>
+			<button id="saveScript">Enregistrer</button>
+			<p id="etat"></p>
+		</div>
+	</div>
+</body>
+</html>
