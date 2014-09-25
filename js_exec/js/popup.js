@@ -47,6 +47,11 @@ $(document).ready(function()
 	// === "SCRIPT RAPIDE"
 	// ======================================================================
 
-
+	// === Exécution du script rapide ===
+	$('form#quick-script').submit(function(e) {
+		e.preventDefault();
+		var code = $('form#quick-script textarea[name=quick-script]').val();
+		executeScript(code);
+	});
 
 });
