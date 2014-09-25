@@ -19,21 +19,34 @@
 
 		<nav id="sidebar">
 			<ul>
-				<li><a href="#1">Scripts</a></li>
-				<li><a href="#2">Options</a></li>
-				<li><a href="#3">Aide</a></li>
-				<li><a href="#4">Contact</a></li>
+				<li><a id="link-scripts">Scripts</a></li>
+				<li><a id="link-options">Options</a></li>
+				<li><a id="link-aide">Aide</a></li>
+				<li><a id="link-contact">Contact</a></li>
 			</ul>
 		</nav>
 
-		<section>
-			<div id="addScript">
+		<section id="scripts" class="active">
+			<div id="addScript" class="subsection">
 				<h2>Ajouter un script</h2>
-				<input type="text" name="nom-script"required placeholder="Nom du script" />
-				<textarea type="text" name="script"required placeholder="JS"></textarea>
-				<button id="saveScript">Enregistrer</button>
+				<form action="">
+					<input type="text" name="nom-script" required placeholder="Nom du script" />
+					<textarea type="text" name="script" rows="20" required placeholder="JS"></textarea>
+					<button id="save_newScript">Enregistrer</button>
+				</form>
+			</div>
+
+			<div id="listScripts" class="subsection">
+				<h2>Scripts enregistrés</h2>
+				<form action="">
+					<select name="listScripts" id="listScripts"></select>
+					<textarea name="viewScript" id="viewScript" rows="20"></textarea>
+					<button id="save_editScript">Enregistrer les changements</button>
+				</form>
 			</div>
 		</section>
+
+
 	</div>
 </body>
 </html>
