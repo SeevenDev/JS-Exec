@@ -1,7 +1,6 @@
 $(document).ready(function()
 {
 	// chrome.storage.local.clear();
-	// chrome.storage.local.set({'scripts': {'script 1': 'code1', 'script2': 'code2'}}, function() {});
 
 	// ======================================================================
 	// === LIBRARY
@@ -62,6 +61,7 @@ $(document).ready(function()
 
 	// === Affichage dans 'viewScript' du code du script sélectionné dans le select ===
 	print_selectedScript($('select[name=listScripts]'), $('textarea[name=viewScript]'));
+
 	$('select[name=listScripts]').change(function() {
 		print_selectedScript($('select[name=listScripts]'), $('textarea[name=viewScript]'));
 	});

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Options</title>
+	<title>JS Exec - Options</title>
 	<meta charset="utf-8"/>
 
 	<!-- CSS -->
@@ -14,7 +14,7 @@
 <body>
 	<div id="container">
 		<header>
-			<h1>JS-Exec</h1>
+			<h1>JS Exec</h1>
 		</header>
 
 		<nav id="sidebar">
@@ -29,20 +29,20 @@
 		<section id="scripts" class="active">
 			<div class="subsection">
 				<h2>Ajouter un script</h2>
-				<form id="addScript">
+				<form id="addScript" method="post">
 					<input type="text" name="nom-script" required placeholder="Nom du script" />
 					<textarea type="text" name="script" rows="20" required placeholder="JS"></textarea>
-					<button id="save_newScript">Enregistrer</button>
+					<button>Enregistrer</button>
 				</form>
 				<p id="message"></p>
 			</div>
 
 			<div class="subsection">
 				<h2>Scripts enregistrés</h2>
-				<form id="listScripts">
+				<form id="listScripts" method="post">
 					<select name="listScripts"></select>
 					<textarea name="viewScript" id="viewScript" rows="20"></textarea>
-					<button id="save_editScript">Enregistrer les changements</button>
+					<button>Enregistrer les changements</button>
 				</form>
 			</div>
 		</section>
