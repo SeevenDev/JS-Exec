@@ -1,0 +1,38 @@
+body {
+	width: 400px;
+	background-color: #5F6770;
+	font: 0.7em sans-serif;
+}
+
+/***********************************************************************************
+**  LINKS
+***********************************************************************************/
+
+#options-link {
+	position: fixed;
+		top: 5px;
+		right: 5px;
+	color: white;
+	opacity: 0.5;
+	text-decoration: none;
+}
+#options-link:hover {
+	opacity: 0.8;
+}
+
+/***********************************************************************************
+**  FORMS
+***********************************************************************************/
+
+form {
+	width: 100%;
+	padding: 0px 10px;
+}
+input, textarea, select {
+	display: block;
+	width: 90%;
+	margin: 5px 5px;
+}
+button {
+	margin: 5px 10px;
+}

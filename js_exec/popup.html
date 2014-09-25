@@ -4,29 +4,30 @@
 	<title>JS Exec - Popup</title>
 	<meta charset="utf-8"/>
 
-	<style type="text/css">
-		body {
-			width: 300px;
-		}
-		#options-link {
-			display: block;
-			width: 100%;
-			text-align: right;
-		}
-	</style>
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/popup.css">
 
-	<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
-	<script type="text/javascript" src="popup.js"></script>
+	<!-- JS -->
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="js/popup.js"></script>
 </head>
 
 <body>
-	<div id="title">Write a script :</div>
+	<div id="choose-script">
+		<h1>Choisir un script</h1>
+		<form id="choose-script" method="post">
+			<select name="choose-script"></select>
+			<button>Exécuter</button>
+		</form>
+	</div>
 
-	<textarea type="text" name="script"></textarea>
 
-	<button id="runScript">Run</button>
-	<!-- <button id="addScript">Add a script</button> -->
+	<h1>Script rapide</h1>
+	<form id="quick-script" method="post">
+		<textarea type="text" name="quick-script" rows="10"></textarea>
+		<button>Exécuter</button>
+	</form>
 
-	<!-- <a id="options-link" href="options.html" target="_blank">Options</a> -->
+	<a id="options-link" href="options.html" target="_blank">Options</a>
 </body>
 </html>

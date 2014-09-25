@@ -3,7 +3,7 @@ $(document).ready(function()
 	// chrome.storage.local.clear();
 
 	// ======================================================================
-	// === LIBRARY
+	// === LIBRARY (TODO: refactor with popup.js)
 	// ======================================================================
 
 	function saveScript(name, code) {
