@@ -27,19 +27,20 @@
 		</nav>
 
 		<section id="scripts" class="active">
-			<div id="addScript" class="subsection">
+			<div class="subsection">
 				<h2>Ajouter un script</h2>
-				<form action="">
+				<form id="addScript">
 					<input type="text" name="nom-script" required placeholder="Nom du script" />
 					<textarea type="text" name="script" rows="20" required placeholder="JS"></textarea>
 					<button id="save_newScript">Enregistrer</button>
 				</form>
+				<p id="message"></p>
 			</div>
 
-			<div id="listScripts" class="subsection">
+			<div class="subsection">
 				<h2>Scripts enregistrés</h2>
-				<form action="">
-					<select name="listScripts" id="listScripts"></select>
+				<form id="listScripts">
+					<select name="listScripts"></select>
 					<textarea name="viewScript" id="viewScript" rows="20"></textarea>
 					<button id="save_editScript">Enregistrer les changements</button>
 				</form>

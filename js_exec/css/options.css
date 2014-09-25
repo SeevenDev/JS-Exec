@@ -88,12 +88,13 @@ section {
 	margin: 0px;
 	padding: 10px 50px;
 	display: none;
+	overflow: auto;
 }
 section.active {
 	display: block;
 }
 section .subsection {
-	display: inline-block;
+	float: left;
 	width: 45%;
 	padding: 10px 20px;
 }
