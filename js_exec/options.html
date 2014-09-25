@@ -4,72 +4,36 @@
 	<title>Options</title>
 	<meta charset="utf-8"/>
 
-	<style type="text/css">
-		* {
-			box-sizing: border-box;
-			marg
-		}
-		body, #title, #sidebar, #main {
-			margin: 0px;
-			padding: 0px;
-		}
-		#title {
-			width: 100%;
-			height: 100px;
-			border-bottom: 1px solid gray;
-		}
-		#sidebar {
-			position: fixed;
-				top: 100px;
-				left: 0px;
-			height: 100%;
-			width: 200px;
-			border-right: 1px solid gray;
-		}
-		#sidebar .link {
-			color: blue;
-		}
-		#main {
-			position: fixed;
-				top: 100px;
-				left: 200px;
-			width: 100%;
-			height: 100%;
-			padding: 20px;
-		}
-		#main #addScript input, #main #addScript textarea {
-			display: block;
-			margin-bottom: 10px;
-		}
-	</style>
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/options.css">
 
-	<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
-	<script type="text/javascript" src="options.js"></script>
+	<!-- JS -->
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="js/options.js"></script>
 </head>
 <body>
-	<div id="title">
-		JS Exec
-	</div>
+	<div id="container">
+		<header>
+			<h1>JS-Exec</h1>
+		</header>
 
-	<div id="sidebar">
-		<p>Liens :</p>
-		<ul id="liens">
-			<li class="link" id="addScript-link">Ajouter un script</li>
-		</ul>
-		<p>Scripts :</p>
-		<ul id="scripts">
-			
-		</ul>
-	</div>
+		<nav id="sidebar">
+			<ul>
+				<li><a href="#1">Scripts</a></li>
+				<li><a href="#2">Options</a></li>
+				<li><a href="#3">Aide</a></li>
+				<li><a href="#4">Contact</a></li>
+			</ul>
+		</nav>
 
-	<div id="main">
-		<div id="addScript">
-			<p>Ajouter un script :</p>
-			<input required type="text" name="nom-script" placeholder="Nom du script" />
-			<textarea required type="text" name="script" placeholder="JS"></textarea>
-			<button id="saveScript">Enregistrer</button>
-			<p id="etat"></p>
-		</div>
+		<section>
+			<div id="addScript">
+				<h2>Ajouter un script</h2>
+				<input type="text" name="nom-script"required placeholder="Nom du script" />
+				<textarea type="text" name="script"required placeholder="JS"></textarea>
+				<button id="saveScript">Enregistrer</button>
+			</div>
+		</section>
 	</div>
 </body>
 </html>
