@@ -29,7 +29,7 @@ $(document).ready(function()
 		// === On active tab ===
 		chrome.tabs.query({active: true, lastFocusedWindow: true}, function(selectedTab) {
 			// --- Splits the code at the ":load:" keywords ---
-			var blocks = code_.split(':load:\n');
+			var blocks = code_.split('//:load:\n');
 			console.log(blocks);
 
 			// --- For the first block of code (no page change expected) ---
