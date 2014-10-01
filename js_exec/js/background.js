@@ -2,9 +2,21 @@
 function inject(script, tabID) {
 	// Inject jQuery :
 	chrome.tabs.executeScript(tabID, {file: 'js/jquery-1.11.1.min.js'});
-	// Inject the script after 0.5 sec :
+
+	// Inject API :
 	setTimeout(function() {
-		chrome.tabs.executeScript(tabID, {code: script});
+		chrome.tabs.executeScript(tabID, {file: 'js/api.js'});
+
+		// Isolate the user's script in an IEF :
+		var wrapped_script = "(function() {"+
+		"var chrome = undefined;"+ // removes access to Chrome API
+		script + // the user's script
+		"})();";
+
+		// Inject the script :
+		setTimeout(function() {
+			chrome.tabs.executeScript(tabID, {code: wrapped_script});
+		}, 500);
 	}, 500);
 }
 
