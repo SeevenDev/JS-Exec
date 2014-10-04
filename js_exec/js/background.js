@@ -3,8 +3,10 @@ function inject(script, tabID) {
 
 	// Isolate the user's script in an IEF :
 	var wrapped_script = "(function() {"+
-	"var chrome = undefined;"+ // removes access to Chrome API
-	script + // the user's script
+		"var user_data = "+JSON.stringify(window.user_data)+";"+
+		"var chrome = undefined;"+ // removes access to Chrome API
+		script + // the user's script
+		"return user_data;"+
 	"})();";
 
 	// Inject jQuery :
@@ -12,12 +14,17 @@ function inject(script, tabID) {
 		// Inject the JS Exec custom API :
 		chrome.tabs.executeScript(tabID, {file: 'js/api.js'}, function() {
 			// Inject the user's script :
-			chrome.tabs.executeScript(tabID, {code: wrapped_script});
+			chrome.tabs.executeScript(tabID, {code: wrapped_script}, function(result) {
+				window.user_data = result[0];
+			});
 		});
 	});
 }
 
 function executeScript(code_) {
+
+	window.user_data = {jse_info: 'HEY :D'};
+
 	// === On active tab ===
 	chrome.tabs.query({active: true, lastFocusedWindow: true}, function(selectedTab) {
 		// --- Splits the code at the "//:load:" keywords ---
