@@ -41,7 +41,7 @@ $(document).ready(function()
 			var scripts_array = user_scripts.user_scripts;
 			if (!!scripts_array) {
 				$.each(scripts_array, function(name, code) {
-					$('select[name=listScripts]').append('<option value="'+name+'">'+name+'</option>');
+					$('select[name=scripts-list]').append('<option value="'+name+'">'+name+'</option>');
 				});
 			}
 		});
@@ -53,52 +53,58 @@ $(document).ready(function()
 
 			var nom = src_name.val();
 			var code = scripts_array[nom];
-			dest_code.val(code);
+			dest_code.setValue(code);
 		});
 	}
 
 	// ======================================================================
-	// === "AJOUTER UN SCRIPT"
+	// === "ADD A SCRIPT"
 	// ======================================================================
 
-	$('form#addScript').submit(function(e) {
-		var nom = $('#addScript input[name=nom-script]').val();
-		var code = $('#addScript textarea[name=script]').val();
-		saveScript(nom, code);
+	// === Ace Editor ===
+	var add_script_editor = ace.edit("add-script-editor");
+	add_script_editor.setTheme("ace/theme/twilight");
+	add_script_editor.getSession().setMode("ace/mode/javascript");
+
+	// === Button ===
+	$('#add-script-button').click(function(e) {
+		var name = $('input[name=add-script-name]').val();
+		var code = add_script_editor.getValue();
+		saveScript(name, code, function() {
+			document.location.pathname = "options.html";
+		});
 	});
 
 	// ======================================================================
-	// === "SCRIPTS ENREGISTRÉS"
+	// === "MY SCRIPTS"
 	// ======================================================================
 
-	// === Remplissage du select 'listScripts' ===
+	// === Ace Editor ===
+	var script_editor = ace.edit("script-editor");
+	script_editor.setTheme("ace/theme/twilight");
+	script_editor.getSession().setMode("ace/mode/javascript");
+
+	// === Filling the 'scripts-list' select ===
 	refresh_selectListScripts();
 
-	// === Affichage dans 'viewScript' du code du script sélectionné dans le select ===
-	print_selectedScript($('select[name=listScripts]'), $('textarea[name=viewScript]'));
-
-	$('select[name=listScripts]').change(function() {
-		print_selectedScript($('select[name=listScripts]'), $('textarea[name=viewScript]'));
+	// === Printing the selected script in the Ace Editor ===
+	print_selectedScript($('select[name=scripts-list]'), script_editor);
+	$('select[name=scripts-list]').change(function() {
+		print_selectedScript($('select[name=scripts-list]'), script_editor);
 	});
 
-	// === Enregistrer les modifications du script ===
-
-	$('form#listScripts').submit(function(e) {
-		e.preventDefault();
-	});
-
-	$('#saveScript-button').click(function(e) {
-		var nom = $('#listScripts select[name=listScripts]').val();
-		var code = $('#listScripts textarea[name=viewScript]').val();
+	// === Save changes to the script ====
+	$('#save-script-button').click(function(e) {
+		var nom = $('select[name=scripts-list]').val();
+		var code = script_editor.getValue();
 		saveScript(nom, code, function() {
 			document.location.pathname = "options.html";
 		});
 	});
 
-	// === Supprimer un script ===
-
-	$('#deleteScript-button').click(function(e) {
-		var nom = $('#listScripts select[name=listScripts]').val();
+	// === Delete the script ===
+	$('#delete-script-button').click(function(e) {
+		var nom = $('select[name=scripts-list]').val();
 		deleteScript(nom, function() {
 			document.location.pathname = "options.html";
 		});

@@ -7,15 +7,17 @@
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="css/options.css">
+	<link rel="stylesheet" href="css/general.css">
 
 	<!-- JS -->
 	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="js/options.js"></script>
+	<script type="text/javascript" src="js/ace/ace.js" charset="utf-8"></script>
 </head>
 <body>
 	<div id="container">
 		<header>
-			<h1>JS Exec</h1>
+			<h1>JS-Exec Options Page</h1>
 		</header>
 
 		<nav id="sidebar">
@@ -30,22 +32,17 @@
 		<section id="scripts" class="active">
 			<div class="subsection">
 				<h2>Add a script</h2>
-				<form id="addScript" method="post">
-					<input type="text" name="nom-script" required placeholder="Nom du script" />
-					<textarea type="text" name="script" rows="20" required placeholder="JS"></textarea>
-					<button id="addScript-button">Add this script</button>
-				</form>
-				<p id="message"></p>
+				<input type="text" name="add-script-name" required placeholder="Nom du script" />
+				<div id="add-script-editor" class="ace-editor"></div>
+				<div class="button" id="add-script-button">Add this script</div>
 			</div>
 
 			<div class="subsection">
 				<h2>My scripts</h2>
-				<form id="listScripts" method="post">
-					<select name="listScripts"></select>
-					<textarea name="viewScript" id="viewScript" rows="20"></textarea>
-					<button id="saveScript-button">Save</button>
-					<button id="deleteScript-button">Delete</button>
-				</form>
+				<select name="scripts-list"></select>
+				<div id="script-editor" class="ace-editor"></div>
+				<div class="button" id="save-script-button">Save</div>
+				<div class="button" id="delete-script-button">Delete</div>
 			</div>
 		</section>
 

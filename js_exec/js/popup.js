@@ -42,7 +42,6 @@ $(document).ready(function()
 	// ======================================================================
 
 	// === Ace Editor ===
-
 	var ace_editor = ace.edit("quick-script-editor");
 	ace_editor.setTheme("ace/theme/twilight");
 	ace_editor.getSession().setMode("ace/mode/javascript");

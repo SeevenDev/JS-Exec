@@ -1,6 +1,6 @@
 body {
-	background-color: #5F6770;
-	font: 1.1em sans-serif;
+	background-color: #171717;
+	font: 1em sans-serif;
 }
 
 /***********************************************************************************
@@ -9,6 +9,10 @@ body {
 
 header h1 {
 	text-align: center;
+	color: #F3DF49;
+}
+h2 {
+	color: #F3DF49;
 }
 
 /***********************************************************************************
@@ -16,7 +20,7 @@ header h1 {
 ***********************************************************************************/
 
 #container {
-	background-color: #69737C;
+	background-color: #2E2E2C;
 	width: 95%;
 		min-width: 500px;
 		max-width: 2000px;
@@ -38,12 +42,13 @@ nav ul {
 	display: table;
 	margin: 10px auto 10px;
 	padding: 0px;
-	background: linear-gradient(deepskyblue, dodgerblue);
+	background: linear-gradient(#F3DF49, #D3BB0E);
 	border-radius: 3px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, .3),
                 0 3px 5px rgba(0, 0, 0, .2),
                 0 5px 10px rgba(0, 0, 0, .2),
                 0 20px 20px rgba(0, 0, 0, .15);
+    -webkit-user-select: none;
 }
 nav ul li {
 	display: table-cell;
@@ -56,13 +61,6 @@ nav ul li a {
     color: rgba(0, 0, 0, .7);
     text-decoration: none;
     padding: 8px 8px 8px 8px;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, .4);
-	box-shadow: 0 1px 0 rgba(255, 255, 255, .7) inset,
-                0 -1px 0 hsl(210, 100%, 32%) inset,
-                0 -2px 0 hsl(210, 100%, 38%) inset,
-                0 -3px 0 hsl(210, 100%, 44%) inset,
-                0 -4px 0 hsl(210, 100%, 50%) inset,
-                0 -5px 0 hsl(210, 100%, 60%) inset;
 }
 nav ul li:first-child a{
     border-radius: 3px 0 0 3px;
@@ -73,12 +71,6 @@ nav ul li:last-child a{
 nav ul li a:hover,
 nav ul li a:focus{
     background: rgba(255,255,255,.2);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, .7) inset,
-                0 -1px 0 hsl(210, 100%, 42%) inset,
-                0 -2px 0 hsl(210, 100%, 48%) inset,
-                0 -3px 0 hsl(210, 100%, 54%) inset,
-                0 -4px 0 hsl(210, 100%, 60%) inset,
-                0 -5px 0 hsl(210, 100%, 70%) inset;
 }
 nav ul li a:active{
     background: linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.1));
@@ -113,6 +105,12 @@ input, textarea, select {
 	width: 100%;
 	margin: 5px 5px;
 }
-button {
-	margin: 5px 10px;
+.ace-editor {
+	width: 100%;
+	height: 400px;
+	margin: 2px 5px;
+}
+.button {
+	display: inline-block;
+	width: 150px !important;
 }

@@ -42,21 +42,3 @@ input, textarea, select {
 	margin: 10px 0px;
 	width: 100%;
 }
-.button {
-	width: 100px;
-	margin: 5px;
-	background-color: #F3DF49;
-	border-radius: 4px;
-	border: 1px solid #2E2E2C;
-	cursor: pointer;
-	color: #2E2E2C;
-	font-size: 15px;
-	font-weight: bold;
-	padding: 4px 0px;
-	text-decoration: none;
-	text-align: center;
-	-webkit-user-select: none;
-}
-.button:active {
-	border: 1px solid #2E2E2C;
-}
