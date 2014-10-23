@@ -9,9 +9,11 @@ How to use
 
 ## Installing
 
-I plan to put this extension (for free, of course) on the Chrome Web Store anytime soon. I will then post the link to easily download and install it here.
+The extension is now available on the Chrome Web Store here :
 
-But if you want to test the extension now, you just have to download the `js-exec` folder and to load it as an *unpacked extension* on Chrome.
+https://chrome.google.com/webstore/detail/js-exec/caeimpdeapdimekjkkkggpibnlijlnka
+
+But if you want to test this repository version before the Chrome Web Store one is updated, you just have to download the `js_exec` folder and to load it as an *unpacked extension* on Chrome.
 
 ## Running scripts
 
