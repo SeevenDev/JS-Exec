@@ -12,7 +12,7 @@ var str = prompt("Entrez la phrase à crypter"),
 var str_charCode, str_rot_newChar;
 
 for (var i = 0 ; i < len ; i++) {
-	str_charCode = str.charCodeAt(i)
+	str_charCode = str.charCodeAt(i);
 	// --- Majuscules ---
 	if (65 <= str_charCode && str_charCode <= 90) {
 		str_rot_newChar = String.fromCharCode( ((str_charCode - 65 + rot) % 26) + 65 );
