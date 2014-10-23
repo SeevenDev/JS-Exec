@@ -32,7 +32,7 @@
 				<form id="addScript" method="post">
 					<input type="text" name="nom-script" required placeholder="Nom du script" />
 					<textarea type="text" name="script" rows="20" required placeholder="JS"></textarea>
-					<button>Ajouter le script</button>
+					<button id="addScript-button">Ajouter le script</button>
 				</form>
 				<p id="message"></p>
 			</div>
@@ -42,7 +42,8 @@
 				<form id="listScripts" method="post">
 					<select name="listScripts"></select>
 					<textarea name="viewScript" id="viewScript" rows="20"></textarea>
-					<button>Enregistrer les changements</button>
+					<button id="saveScript-button">Enregistrer les changements</button>
+					<button id="deleteScript-button">Supprimer le script</button>
 				</form>
 			</div>
 		</section>

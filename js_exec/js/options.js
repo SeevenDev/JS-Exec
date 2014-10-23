@@ -8,16 +8,25 @@ $(document).ready(function()
 
 	function saveScript(name, code) {
 		chrome.storage.local.get('user_scripts', function(user_scripts) {
-			var scripts_array = user_scripts.user_scripts;
+			var scripts = user_scripts.user_scripts;
 
-			// === Si aucun script déjà enregistré ===
-			if (!scripts_array) {
-				scripts_array = {};
+			// === Si aucun script déjà enregistré : création de l'objet JavaScript ===
+			if (!scripts) {
+				scripts = {};
 			}
 
 			// === Enregistrement du nouveau script ===
-			scripts_array[name] = code;
-			chrome.storage.local.set({'user_scripts': scripts_array}, function() {});
+			scripts[name] = code;
+			chrome.storage.local.set({'user_scripts': scripts}, function() {});
+		});
+	}
+
+	function deleteScript(name) {
+		if (! confirm("Supprimer le script " + name + " ?"))
+			return;
+
+		chrome.storage.local.remove(name, function() {
+			console.log(runtime.lastError);
 		});
 	}
 
@@ -26,7 +35,7 @@ $(document).ready(function()
 			var scripts_array = user_scripts.user_scripts;
 			if (!!scripts_array) {
 				$.each(scripts_array, function(name, code) {
-					$('select[name=listScripts]').append('<option value="'+name+'">'+name+'.js</option>');
+					$('select[name=listScripts]').append('<option value="'+name+'">'+name+'</option>');
 				});
 			}
 		});
@@ -67,10 +76,24 @@ $(document).ready(function()
 	});
 
 	// === Enregistrer les modifications du script ===
+
 	$('form#listScripts').submit(function(e) {
 		var nom = $('#listScripts select[name=listScripts]').val();
 		var code = $('#listScripts textarea[name=viewScript]').val();
 		saveScript(nom, code);
+	});
+
+	$('saveScript-button').click(function(e) {
+		var nom = $('#listScripts select[name=listScripts]').val();
+		var code = $('#listScripts textarea[name=viewScript]').val();
+		saveScript(nom, code);
+	});
+
+	// === Supprimer un script ===
+
+	$('deleteScript-button').click(function(e) {
+		var nom = $('#listScripts select[name=listScripts]').val();
+		deleteScript(nom);
 	});
 
 });
