@@ -3,6 +3,7 @@
 <head>
 	<title>JS Exec - Options</title>
 	<meta charset="utf-8"/>
+	<link rel="icon" type="image/x-icon" href="js-logo.png">
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="css/options.css">
@@ -21,29 +22,29 @@
 			<ul>
 				<li><a id="link-scripts">Scripts</a></li>
 				<li><a id="link-options">Options</a></li>
-				<li><a id="link-aide">Aide</a></li>
+				<li><a id="link-aide">Help</a></li>
 				<li><a id="link-contact">Contact</a></li>
 			</ul>
 		</nav>
 
 		<section id="scripts" class="active">
 			<div class="subsection">
-				<h2>Ajouter un script</h2>
+				<h2>Add a script</h2>
 				<form id="addScript" method="post">
 					<input type="text" name="nom-script" required placeholder="Nom du script" />
 					<textarea type="text" name="script" rows="20" required placeholder="JS"></textarea>
-					<button id="addScript-button">Ajouter le script</button>
+					<button id="addScript-button">Add this script</button>
 				</form>
 				<p id="message"></p>
 			</div>
 
 			<div class="subsection">
-				<h2>Scripts enregistrés</h2>
+				<h2>My scripts</h2>
 				<form id="listScripts" method="post">
 					<select name="listScripts"></select>
 					<textarea name="viewScript" id="viewScript" rows="20"></textarea>
-					<button id="saveScript-button">Enregistrer les changements</button>
-					<button id="deleteScript-button">Supprimer le script</button>
+					<button id="saveScript-button">Save</button>
+					<button id="deleteScript-button">Delete</button>
 				</form>
 			</div>
 		</section>
