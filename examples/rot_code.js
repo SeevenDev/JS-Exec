@@ -1,6 +1,6 @@
 /**
  * You can also write quick applications like this ROT-n script.
- * Such applications can use all the JavaScript and jQuery calculus power and you can run them wherever and whenever you want. They are also very easy to modify.
+ * Such applications can use all the JavaScript and jQuery computing power and you can run them wherever and whenever you want. They are also very easy to modify.
  * JS-Exec : https://github.com/SeevenDev/JS-Exec
  */
 

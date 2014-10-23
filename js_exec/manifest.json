@@ -1,9 +1,10 @@
 {
 	"manifest_version": 2,
 
-	"name": "JS Exec",
+	"name": "JS-Exec",
 	"description": "Inject your own JavaScript in any webpage.",
 	"version": "1.0",
+	"author": "SeevenDev",
 
 	"options_page": "options.html",
 
@@ -12,9 +13,6 @@
 		"unlimitedStorage",
 		"activeTab",
 		"<all_urls>"
-		// "windows",
-		// "http://*/*",
-		// "https://*/*"
 	],
 
 	"browser_action":
