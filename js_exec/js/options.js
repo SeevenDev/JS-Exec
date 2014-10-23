@@ -1,12 +1,10 @@
 $(document).ready(function()
 {
-	// chrome.storage.local.clear();
-
 	// ======================================================================
 	// === LIBRARY (TODO: refactor with popup.js)
 	// ======================================================================
 
-	function saveScript(name, code) {
+	function doSomethingWithScripts(doSomething, callback) {
 		chrome.storage.local.get('user_scripts', function(user_scripts) {
 			var scripts = user_scripts.user_scripts;
 
@@ -15,19 +13,27 @@ $(document).ready(function()
 				scripts = {};
 			}
 
-			// === Enregistrement du nouveau script ===
-			scripts[name] = code;
-			chrome.storage.local.set({'user_scripts': scripts}, function() {});
+			// === Do something ===
+			doSomething(scripts);
+
+			// === Sauvegarde l'objet user_scripts ===
+			chrome.storage.local.set({'user_scripts': scripts}, callback);
 		});
 	}
 
-	function deleteScript(name) {
+	function saveScript(name, code, callback) {
+		doSomethingWithScripts(function(scripts) {
+			scripts[name] = code;
+		}, callback);
+	}
+
+	function deleteScript(name, callback) {
 		if (! confirm("Supprimer le script " + name + " ?"))
 			return;
 
-		chrome.storage.local.remove(name, function() {
-			console.log(runtime.lastError);
-		});
+		doSomethingWithScripts(function(scripts) {
+			delete scripts[name];
+		}, callback);
 	}
 
 	function refresh_selectListScripts() {
@@ -78,22 +84,24 @@ $(document).ready(function()
 	// === Enregistrer les modifications du script ===
 
 	$('form#listScripts').submit(function(e) {
-		var nom = $('#listScripts select[name=listScripts]').val();
-		var code = $('#listScripts textarea[name=viewScript]').val();
-		saveScript(nom, code);
+		e.preventDefault();
 	});
 
-	$('saveScript-button').click(function(e) {
+	$('#saveScript-button').click(function(e) {
 		var nom = $('#listScripts select[name=listScripts]').val();
 		var code = $('#listScripts textarea[name=viewScript]').val();
-		saveScript(nom, code);
+		saveScript(nom, code, function() {
+			document.location.pathname = "options.html";
+		});
 	});
 
 	// === Supprimer un script ===
 
-	$('deleteScript-button').click(function(e) {
+	$('#deleteScript-button').click(function(e) {
 		var nom = $('#listScripts select[name=listScripts]').val();
-		deleteScript(nom);
+		deleteScript(nom, function() {
+			document.location.pathname = "options.html";
+		});
 	});
 
 });
