@@ -23,10 +23,9 @@ $(document).ready(function()
 	refresh_chooseScript();
 
 	// === Exécution du script choisi ===
-	$('form#choose-script').submit(function(e) {
-		e.preventDefault();
+	$('#choose-script-button').click(function(e) {
 		// --- Nom ---
-		var nom = $('#choose-script select[name=choose-script]').val();
+		var nom = $('select[name=choose-script]').val();
 		// --- Code ---
 		chrome.storage.local.get('user_scripts', function(user_scripts) {
 			var scripts_array = user_scripts.user_scripts;
@@ -42,20 +41,25 @@ $(document).ready(function()
 	// === (TODO : sauvegarder le script rapide automatiquement (quelles conditions ?))
 	// ======================================================================
 
+	// === Ace Editor ===
+
+	var ace_editor = ace.edit("quick-script-editor");
+	ace_editor.setTheme("ace/theme/twilight");
+	ace_editor.getSession().setMode("ace/mode/javascript");
+
 	// === Chargement de l'éventuel dernier script rapide utilisé ===
 	chrome.storage.local.get('user_quick_script', function(code) {
 		if (code.user_quick_script) {
-			$('form#quick-script textarea[name=quick-script]').val(code.user_quick_script);
+			ace_editor.setValue(code.user_quick_script);
 		}
 	});
 
 	// === Exécution du script rapide ===
-	$('form#quick-script').submit(function(e) {
-		e.preventDefault();
+	$('#quick-script-button').click(function(e) {
 		// --- Sauvegarde du code ---
-		var code = $('form#quick-script textarea[name=quick-script]').val();
+		var code = ace_editor.getValue();
 		chrome.storage.local.set({'user_quick_script': code}, function() {
-			console.log(code + " saved.");
+			console.log(code);
 		});
 
 		// --- Execution du script ---

@@ -1,7 +1,16 @@
+* {
+	box-sizing: border-box;
+}
+
 body {
 	width: 400px;
-	background-color: #5F6770;
+	background-color: #2E2E2C;  /* #5F6770 */
 	font: 0.7em sans-serif;
+	color: #F3DF49;
+}
+
+.container {
+	padding: 0px 5px;
 }
 
 /***********************************************************************************
@@ -12,7 +21,7 @@ body {
 	position: fixed;
 		top: 5px;
 		right: 5px;
-	color: white;
+	color: #F3DF49;
 	opacity: 0.5;
 	text-decoration: none;
 }
@@ -24,15 +33,30 @@ body {
 **  FORMS
 ***********************************************************************************/
 
-form {
+#quick-script-editor {
 	width: 100%;
-	padding: 0px 10px;
+	height: 300px;
 }
 input, textarea, select {
 	display: block;
-	width: 90%;
-	margin: 5px 5px;
+	margin: 10px 0px;
+	width: 100%;
 }
-button {
-	margin: 5px 10px;
+.button {
+	width: 100px;
+	margin: 5px;
+	background-color: #F3DF49;
+	border-radius: 4px;
+	border: 1px solid #2E2E2C;
+	cursor: pointer;
+	color: #2E2E2C;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 4px 0px;
+	text-decoration: none;
+	text-align: center;
+	-webkit-user-select: none;
+}
+.button:active {
+	border: 1px solid #2E2E2C;
 }

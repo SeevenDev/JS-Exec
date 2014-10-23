@@ -10,23 +10,19 @@
 	<!-- JS -->
 	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="js/popup.js"></script>
+	<script type="text/javascript" src="js/ace/ace.js" charset="utf-8"></script>
 </head>
 
 <body>
-	<div id="choose-script">
+	<div class="container">
 		<h1>Choose a script</h1>
-		<form id="choose-script" method="post">
-			<select name="choose-script"></select>
-			<button>Run</button>
-		</form>
+		<select name="choose-script"></select>
+		<div id="choose-script-button" class="button">Run</div>
+
+		<h1>Quick Script</h1>
+		<div id="quick-script-editor"></div>
+		<div id="quick-script-button" class="button">Run</div>
 	</div>
-
-
-	<h1>Quick Script</h1>
-	<form id="quick-script" method="post">
-		<textarea type="text" name="quick-script" rows="10"></textarea>
-		<button>Run</button>
-	</form>
 
 	<a id="options-link" href="options.html" target="_blank">Options</a>
 </body>
