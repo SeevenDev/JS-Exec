@@ -11,42 +11,143 @@
 
 	<!-- JS -->
 	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="js/lib.js"></script>
 	<script type="text/javascript" src="js/options.js"></script>
 	<script type="text/javascript" src="js/ace/ace.js" charset="utf-8"></script>
 </head>
 <body>
+
+    <nav id="sidebar">
+        <h1>JS-Exec</h1>
+        <ul>
+            <li><a data-js-nav="add-script">Add a script</a></li>
+            <li><a data-js-nav="scripts">My scripts</a></li>
+            <li><a data-js-nav="options">Options</a></li>
+            <li><a data-js-nav="help">Help</a></li>
+            <li><a data-js-nav="contact">Contact</a></li>
+        </ul>
+    </nav>
+
 	<div id="container">
-		<header>
-			<h1>JS-Exec Options Page</h1>
-		</header>
+        <!-- ADD A SCRIPT -->
+        <section id="add-script" class="active">
+            <header>
+                <h1>Add a script</h1>
+            </header>
 
-		<nav id="sidebar">
-			<ul>
-				<li><a id="link-scripts">Scripts</a></li>
-				<li><a id="link-options">Options</a></li>
-				<li><a id="link-aide">Help</a></li>
-				<li><a id="link-contact">Contact</a></li>
-			</ul>
-		</nav>
+            <input type="text" name="add-script-name" required placeholder="Nom du script" />
+            <div id="add-script-editor" class="ace-editor"></div>
+        <div class="button" id="add-script-button">Add this script</div>
+		</section>
 
-		<section id="scripts" class="active">
+        <!-- MY SCRIPTS -->
+		<section id="scripts">
+            <header>
+                <h1>My scripts</h1>
+            </header>
+
+            <select name="scripts-list"></select>
+            <div id="script-editor" class="ace-editor"></div>
+            <div class="button" id="save-script-button">Save</div>
+            <div class="button" id="delete-script-button">Delete</div>
+            <div id="scripts-info" class="info"></div>
+		</section>
+
+        <!-- OPTIONS -->
+        <section id="options">
+            <header>
+                <h1>Options</h1>
+            </header>
+
 			<div class="subsection">
-				<h2>Add a script</h2>
-				<input type="text" name="add-script-name" required placeholder="Nom du script" />
-				<div id="add-script-editor" class="ace-editor"></div>
-				<div class="button" id="add-script-button">Add this script</div>
-			</div>
+				<h2>Ace Editors</h2>
 
-			<div class="subsection">
-				<h2>My scripts</h2>
-				<select name="scripts-list"></select>
-				<div id="script-editor" class="ace-editor"></div>
-				<div class="button" id="save-script-button">Save</div>
-				<div class="button" id="delete-script-button">Delete</div>
+                <!-- Theme -->
+                <label for="ace-theme">Theme</label>
+                <select name="ace-theme" id="ace-theme">
+                    <option value="ambiance">Ambiance</option>
+                    <option value="chaos">Chaos</option>
+                    <option value="chrome">Chrome</option>
+                    <option value="clouds">Clouds</option>
+                    <option value="clouds_midnight">Clouds Midnight</option>
+                    <option value="cobalt">Cobalt</option>
+                    <option value="crimson_editor">Crimson Editor</option>
+                    <option value="dawn">Dawn</option>
+                    <option value="dreamweaver">Dreamweaver</option>
+                    <option value="eclipse">Eclipse</option>
+                    <option value="github">Github</option>
+                    <option value="idle_fingers">Idle Fingers</option>
+                    <option value="katzenmilch">Katzenmilch</option>
+                    <option value="kr_theme">Kr Theme</option>
+                    <option value="kuroir">Kuroir</option>
+                    <option value="merbivore">Merbivore</option>
+                    <option value="merbivore_soft">Merbivore Soft</option>
+                    <option value="mono_industrial">Mono Industrial</option>
+                    <option value="monokai">Monokai</option>
+                    <option value="pastel_on_dark">Pastel On Dark</option>
+                    <option value="solarized_dark">Solarized Dark</option>
+                    <option value="solarized_light">Solarized Light</option>
+                    <option value="terminal">Terminal</option>
+                    <option value="textmate">Textmate</option>
+                    <option value="tomorrow">Tomorrow</option>
+                    <option value="tomorrow_night">Tomorrow Night</option>
+                    <option value="tomorrow_night_blue">Tomorrow Night Blue</option>
+                    <option value="tomorrow_night_bright">Tomorrow Night Bright</option>
+                    <option value="tomorrow_night_eighties">Tomorrow Night Eighties</option>
+                    <option value="twilight">Twilight</option>
+                    <option value="vibrant_ink">Vibrant Ink</option>
+                    <option value="xcode">Xcode</option>
+                </select><br/>
+
+                <!-- Font size -->
+                <label for="ace-font-size">Font size (in px)</label>
+                <input name="ace-font-size" id="ace-font-size" type="number" min="1" value="12" /><br/>
+
+                <!-- Tab size -->
+                <label for="ace-tab-size">Tab size</label>
+                <input name="ace-tab-size" id="ace-tab-size" type="number" min="0" value="4" /><br/>
+
+                <!-- Use soft tabs -->
+                <label for="ace-soft-tabs">Use soft tabs ?</label>
+                <input type="radio" name="ace-soft-tabs" id="ace-soft-tabs-yes" value="true" checked /><label for="ace-soft-tabs-yes">Yes</label>
+                <input type="radio" name="ace-soft-tabs" id="ace-soft-tabs-no" value="false" /><label for="ace-soft-tabs-no">No</label><br/>
+
+                <!-- Word wrapping -->
+                <label for="ace-word-wrapping">Word wrapping ?</label>
+                <input type="radio" name="ace-word-wrapping" id="ace-word-wrapping-yes" value="true" checked /><label for="ace-word-wrapping-yes">Yes</label>
+                <input type="radio" name="ace-word-wrapping" id="ace-word-wrapping-no" value="false" /><label for="ace-word-wrapping-no">No</label><br/>
+
+                <!-- Current line highlighting -->
+                <label for="ace-line-highlighting">Current line highlighting ?</label>
+                <input type="radio" name="ace-line-highlighting" id="ace-line-highlighting-yes" value="true" checked /><label for="ace-line-highlighting-yes">Yes</label>
+                <input type="radio" name="ace-line-highlighting" id="ace-line-highlighting-no" value="false" /><label for="ace-line-highlighting-no">No</label><br/>
+
+                <!-- Display print margin -->
+                <label for="ace-print-margin">Display print margin ?</label>
+                <input type="radio" name="ace-print-margin" id="ace-print-margin-yes" value="true" /><label for="ace-print-margin-yes">Yes</label>
+                <input type="radio" name="ace-print-margin" id="ace-print-margin-no" value="false" checked /><label for="ace-print-margin-no">No</label><br/>
 			</div>
 		</section>
 
+        <!-- HELP -->
+        <section id="help">
+            <header>
+                <h1>Help</h1>
+            </header>
 
+			<div class="subsection">
+				<h2>Help 1</h2>
+			</div>
+		</section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+            <header>
+                <h1>Contact</h1>
+            </header>
+
+
+		</section>
 	</div>
 </body>
 </html>
