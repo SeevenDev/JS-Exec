@@ -3,7 +3,7 @@
 
 	"name": "JS-Exec",
 	"description": "Inject your own JavaScript in any webpage.",
-	"version": "2.0",
+	"version": "3.0",
 	"author": "SeevenDev",
 
 	"options_page": "options.html",
@@ -17,7 +17,7 @@
 
 	"browser_action":
 	{
-		"default_icon": "js-logo.png",
+		"default_icon": "icon.png",
 		"default_popup": "popup.html"
 	},
 
