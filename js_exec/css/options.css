@@ -110,6 +110,10 @@ section .subsection {
     padding: 5px 15px;
     border: 1px solid #383838;
     border-radius: 5px;
+    color: #b9b9b9;
+}
+section .subsection a {
+    color: #F3DF49;
 }
 
 /***********************************************************************************
